@@ -44,28 +44,6 @@ def timeline(request):
 
 @login_required(login_url = '/accounts/login/')
 def profile(request):
-	# profile_pic = ProfilePicForm()
-	# if request.method == 'POST':
-	# 	profile_pic = ProfilePicForm(instance=request.user)
-	# 	if profile_pic.is_valid():
-	# 		profile_pic.save()
-	# current_user = request.user
-	# current_profile = request.user.profile
-	# if request.method == 'POST':
-	# 	form = NewPostForm(request.POST,request.FILES)
-
-	# 	if form.is_valid():
-	# 		post = form.save(commit=False)#commit your post
-	# 		post.user = current_user#post user should be current user
-	# 		post.profile = current_profile#post should be saved to curent_user profile
-	# 		post.save()#save the post 
-
-	# 	elif comment_form.is_valid():
-	# 		print('the comment form is working')
-
-	# else:
-
-	# 	form = NewPostForm()
 	current_user = request.user
 
 	if current_user.is_authenticated():#check to see if current user is authenticated
@@ -116,27 +94,6 @@ def edit_profile(request):
 
 		profile_form = ProfileForm(instance=request.user.profile)
 		user_form = UserForm(instance=request.user.profile)
-
-	# current_user = request.user
-	# current_profile = current_user.profile
-
-	# tags = Tags.retrieve_tags()
-
-	# if request.method == 'POST':
-	# 	form = ProfileForm(request.POST,request.FILES)
-
-	# 	if form.is_valid():
-	# 		profile = form.save(commit=False)
-	# 		profile.user = current_user
-	# 		profile.profile = current_profile
-	# 		profile.save()	
-
-	# 		return redirect(profile)
-
-	# else:
-
-	# 	form = ProfileForm()
-		
 	return render(request, 'edit_profile.html',{"profile_form":profile_form,"user":user,"tags":tags})
 
 @login_required(login_url = '/accounts/login/')
@@ -193,22 +150,6 @@ def suggestions(request):
 	
 	except objectDoesNotExist:
 		raise Http404()
-
-	# following = Follow.retrieve_following(current_user.id)#get following profiles 
-
-	# posts = Post.retrieve_posts()#get all posts 
-
-	# following_posts = []#empty array that will be for posts or the profiles you follow
-
-	# for follow in following:
-
-	# 	for post in posts:
-
-	# 		if follow.profile == post.profile:
-
-	# 			following_posts.append(post)
-
-
 	return render(request, 'all.html', {"profiles":profiles,"user":current_user,"tags":tags})
 
 @login_required(login_url = '/accounts/login/')
@@ -231,8 +172,6 @@ def single_post(request,id):
 	try:
 		current_post = Post.objects.get(id=id)
 		comments = Comments.retrieve_post_comments(id)
-		# no_of_likes = Likes.number_of_likes(post_id=id)
-		# get_likes = Likes.retrieve_post_likes(post_id=id)
 		like_count = current_post.likes.all().count()
 	except ObjectDoesNotExist:
 		raise Http404()
