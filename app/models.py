@@ -5,13 +5,11 @@ from django.dispatch import receiver
 import datetime as dt
 from phonenumber_field.modelfields import PhoneNumberField
 from django.db.models import Sum
-# from vote.models import VoteModel#import vote model
-# from vote.managers import VotableManager
 from liked.models import Like
 from django.contrib.contenttypes.fields import GenericRelation
 
 #default images for profile
-DEFAULT = 'profile/index.jpeg'
+DEFAULT = ''
 
 Genders_Choices = (
 		('Female', 'female'),
