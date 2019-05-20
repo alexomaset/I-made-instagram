@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save#define signals so our profile model auto created/updated when we create/update user instances.
+from django.-db.models.signals import post_save#define signals so our profile model auto created/updated when we create/update user instances.
 from django.dispatch import receiver
 import datetime as dt
 from phonenumber_field.modelfields import PhoneNumberField
