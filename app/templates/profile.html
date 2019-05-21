@@ -1,0 +1,107 @@
+{% extends 'base.html' %} {% block content %} {{block.super}}
+<div class="container profile">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-4">
+                    {% if profile %}
+                    <img src="{{user.profile.photo.url}}" alt="profile pic" id="imagesize"> {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 id="username">{{user.username}}</h3>
+                            <a href="{% url 'edit_profile' %}" id="editprofile">
+                                <button class="btn" id="editbutton">Edit Profile</button>
+                            </a>
+                            <i class="fa fa-cog" aria-hidden="true" id="cog" data-toggle="modal" data-target="#myModal"></i>
+
+                            <!-- Modal -->
+                            <div id="myModal" class="modal fade" role="dialog">
+                                <button type="button" class="close" data-dismiss="modal" id="closeb">&times;</button>
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content" id="modal-content">
+                                        <div class="modal-header">
+                                            <a href="/accounts/password/change" class="linkto">
+                                                <h4 class="text-center">Change Password</h4>
+                                            </a>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4 class="text-center">Authorized Apps</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4 class="text-center">Notifications</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <a href="/logout" class="linkto">
+                                                <h4 class="text-center">Log Out</h4>
+                                            </a>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4 class="text-center" class="close" data-dismiss="modal" id="cancel">Cancel</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="bottom">
+                            <p id="length">
+                                <strong>{{user_posts|length}}</strong> posts</p>
+                            {% if following %}
+                            <p id="followers">
+                                <strong>{{followers|length}}</strong> followers</p>
+                            <p id="following">
+                                <strong>{{following|length}}</strong> following</p>
+                            {% else %}
+                            <p id="followers">
+                                <strong>0</strong> followers</p>
+                            <p id="following">
+                                <strong>0</strong> following</p>
+                            {% endif %}
+                            <p id="useremail">
+                                <strong>{{user.email}}</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<div class="row" id="postrow">
+    <div class="col-md-2"></div>
+    <div class="col-md-7" id="bordertop">
+        <div class="row" id="moredown">
+            <div class="col-md-12">
+                <button class="btn" id="headerpost">POSTS</button>
+            </div>
+        </div>
+        {% if user_posts %}
+        <div class="row">
+            {% for post in user_posts %}
+
+            <div class="col-sm-6 col-md-4 col-lg-4" id="postsdiv">
+                <img src="{{post.photo.url}}" alt="posted photo" class="img-responsive" id="profposts">
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <h3 class="text-center">You have not posted anything yet</h3>
+        {% endif %}
+        <div class="col-md-12" id="padpad">
+            {% for tag in tags %}
+            <h5 id="tagprofile">{{tag.title}}</h5>
+            {% endfor %}
+            <h5 id="copyright3">© 2019 Instagram</h5>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+</div>
+{% endblock %}
