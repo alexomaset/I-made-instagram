@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.-db.models.signals import post_save#define signals so our profile model auto created/updated when we create/update user instances.
+from django.db.models.signals import post_save
 from django.dispatch import receiver
 import datetime as dt
-from phonenumber_field.modelfields import PhoneNumberField
+# from phonenumber_field.modelfields import PhoneNumberField
 from django.db.models import Sum
-from liked.models import Like
+# from liked.models import Like
 from django.contrib.contenttypes.fields import GenericRelation
 
 #default images for profile
@@ -22,10 +22,10 @@ class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)#USER Models
 	name = models.TextField(max_length=500, blank=True)
 	bio = models.TextField(max_length=500, blank=True)
-	website = models.CharField(max_length=30,blank=True)
+	website = models.CharField(max_length=50,blank=True)
 	email = models.EmailField()
-	phone_number = PhoneNumberField(max_length=10, blank=True)
-	photo = models.ImageField(upload_to = 'profile/',blank=True,default=False)
+	# phone_number = PhoneNumberField(max_length=10, blank=True)
+	photo_path = models.ImageField(upload_to = 'profile/',blank=True,default=False)
 	gender = models.CharField(max_length=30,choices=Genders_Choices,default='None',blank=True)
 	
 	def __str__(self):
@@ -96,7 +96,7 @@ class Post(models.Model):
 	profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 	photo = models.ImageField(upload_to = 'photos/',blank=True,default=False)
 	caption = models.TextField(blank=True)
-	likes = GenericRelation(Like)
+	# likes = GenericRelation(Like)
 		
 	
 	def __str__(self):
@@ -152,4 +152,4 @@ class Comments(models.Model):
 	@classmethod
 	def retrieve_post_comments(cls,post_id):
 		post_comments = Comments.objects.filter(post=post_id)
-        return post_comments
+		return post_comments
