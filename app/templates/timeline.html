@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+  {% load static %}
+  {% block content %}
+  {{block.super}}
+    <div class="row" id="tt">
+      <div class="col-md-2 col-lg-2">
+      </div>
+      <div class="col-md-6 col-lg-6" id="left">
+        {% if following_posts %}
+        {% for follow in following_posts %}
+        <div class="panel panel-default" id="default">
+          <div class="panel-heading" id="headingcolor">
+            <img src="{{follow.profile.photo.url}}" alt="{{follow.profile.user.username}}" class="img-responsive" height="" width="" id="profimage">
+            <a href=""><p id="inline">{{follow.profile.user.username}}</p></a>
+          </div>
+          <div class="panel-body" id="bodyp">
+            <a href="{% url 'single_post' follow.id %}">
+            <img src="{{follow.photo.url}}" alt="{{follow.caption}}" class="img-responsive" id="postimage"></a>
+            <a href=""><i class="glyphicon glyphicon-heart"  id="likes"></i></a>
+            <a href="" class="glyphicon
+              glyphicon-comment"></i></a>
+            <p id="l">{{like_count}} likes</p>
+            <h5 id="ccolor">Load more comments</h5>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h3 class="text-left" id="blue">You are not following anyone.</h3>
+        {% if profiles %}  
+        <h3>Suggestions for you. {{profiles|length}} people</h3>
+        <h3><a href="{% url 'suggestions' %}" id="">See All</a></h3>
+        {% endif %}
+        {% endif %}
+      </div>
+      <div class="col-md-2 col-lg-2" id="tagbar">
+          <div class="panel panel-default" id="default2">
+            <div class="panel-heading" id="headingone">
+              <img src="{{user.profile.photo.url}}" alt="{{user.profile.username}}" class="img-responsive" id="profimage2">
+              <a href=""><p id="inline2">{{user.username}}</p></a>
+            </div>
+            <div clas="panel-heading">
+              <h5 class="block" id="stories">Stories</h5>
+              <h5 class="block" id="watch">Watch All</h5>
+            </div>
+            <div class="panel-body" id="scrollbody">
+            {% for profile in profiles %}
+              <div id="scrollmargin">
+                <img src="{{profile.photo.url}}" alt="{{profile.user.username}}" class="img-responsive" id="profimage2">
+                <a href=""><p id="inline2">{{profile.user.username}}</p></a> 
+              </div>
+            {%  endfor %}    
+            </div> 
+             <div class="panel-body">
+              <h6 class="block2">About Us</h6>
+              <h6 class="block2">Support</h6>
+              <h6 class="block2">Blog</h6>
+              <h6 class="block2">Press</h6>
+              <h6 class="block2">API</h6>
+              <h6 class="block2">Jobs</h6>
+              <h6 class="block2">Privacy</h6>
+              <h6 class="block2">Terms</h6>
+              <h6 class="block2">Directoty</h6>
+              <h6 class="block2">Language</h6>
+              <h5 id="copyright4">© 2017 INSTAGRAM</h5>
+             </div>
+          </div>
+      </div>
+      <div class="col-md-2 col-lg-2">
+      </div>
+    </div>
+  {% endblock %}
