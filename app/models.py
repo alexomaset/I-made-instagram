@@ -5,7 +5,7 @@ from django.dispatch import receiver
 import datetime as dt
 # from phonenumber_field.modelfields import PhoneNumberField
 from django.db.models import Sum
-# from liked.models import Like
+from liked.models import Like
 from django.contrib.contenttypes.fields import GenericRelation
 
 #default images for profile
@@ -96,7 +96,7 @@ class Post(models.Model):
 	profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 	photo = models.ImageField(upload_to = 'photos/',blank=True,default=False)
 	caption = models.TextField(blank=True)
-	# likes = GenericRelation(Like)
+	likes = GenericRelation(Like)
 		
 	
 	def __str__(self):

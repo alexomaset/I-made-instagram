@@ -16,7 +16,7 @@ class UserForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
 	class Meta:
 		model = Profile
-		fields = ('bio','website','email','phone_number','photo','gender',)
+		fields = ('bio','website','email','gender',)
 
 class CommentForm(forms.ModelForm):
 	class Meta:
