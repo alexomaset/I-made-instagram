@@ -28,4 +28,35 @@ A user should be albe to:
 | Sign into application | click sigin button | logged into the index page |
 | Upload pictures | Click post button & add image url  | see posted image display in profile page |
 | See profile with posted images | Click profile page link | see profile page with profile details and image posts |   
-                                                   
+| Follow other users | Navigate the users posted image & click follow button | list of followed users should be dispayed in users index page |                                    | Like a user picture | Click like button on post | should see no. of likes increment by 1 every time you like |           
+
+## SETUP & INSTALLATION
+* Clone the repo
+
+* git clone repo_url e.g git clone https://github.com/alexomaset/I-made-instagram.git
+* Create and start a virtual environment inside project directory
+
+* virtual venv virtual
+* source virtual/bin/activate
+* Install all the dependencies in the file > requirements.txt
+
+* pip install -r requirements.txt
+* Start the development server
+
+* python3.7 manage.py runserver    
+
+## PREREQUISITES
+* Python3.6
+* Django
+
+## TECHNOLOGIES USED
+* Python3.6
+* Django
+* Postgresql
+* Bootstrap3
+
+## BUGS
+No known bugs
+
+## LICENCE
+MIT 
