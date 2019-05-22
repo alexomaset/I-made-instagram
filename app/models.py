@@ -111,7 +111,7 @@ class Post(models.Model):
 
 	@classmethod
 	def retrieve_posts(cls):
-		posts = Post.objects.all()
+		posts = cls.objects.all()
 		return posts
 
 	@classmethod

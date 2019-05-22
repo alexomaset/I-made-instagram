@@ -12,8 +12,8 @@ urlpatterns=[
    	url(r'^follow/(\d+)', views.follow, name="follow"),
    	url(r'^all/$',views.suggestions,name = 'suggestions'),
    	url(r'^single_posts/(\d+)',views.single_post,name = 'single_post'),
-		url(r'^like/(\d+)',views.like, name="like"),
-		url(r'^comment/(\d+)',views.comment,name = "comment"),
+	url(r'^like/(\d+)',views.like, name="like"),
+	url(r'^comment/(\d+)',views.comment,name = "comment"),
 ]
 urlpatterns +=staticfiles_urlpatterns()
 

@@ -16,8 +16,8 @@ def timeline(request):
 		current_user = request.user
 
 		current_user_profile = current_user.profile
-
 		profiles = Profile.retrieve_other_profiles(current_user.id)
+		all=Post.objects.all()
 	
 	except objectDoesNotExist:
 		raise Http404()
@@ -39,7 +39,7 @@ def timeline(request):
 
 				following_posts.append(post)
 
-	return render(request, 'timeline.html',{"profiles":profiles,"following":following,"user":current_user,"following_posts":following_posts})
+	return render(request, 'timeline.html',{'all':all,"profiles":profiles,"following":following,"user":current_user,"following_posts":following_posts})
 
 
 @login_required(login_url = '/accounts/login/')

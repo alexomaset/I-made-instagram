@@ -12,22 +12,22 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{% url 'timeline' %}">
-                    <button class="btn" style="background-color: transparent; color: #000; border-right-style: solid; border-right-width: 1px; border-right-color: #003569; border-radius: 0px; margin-left: 263px; margin-right: 0px; padding-right: 12px;">
+                    <button class="btn" style="background-color: transparent; color: #000; border-right-style: solid; border-right-width: 1px; border-right-color: #003569; border-radius: 0px; margin-left: 100px; margin-right: 0px; padding-right: 12px;">
                         <i class="fa fa-instagram" id="igig"></i>
                     </button>
                 </a>
                 <a class="navbar-brand" href="{% url 'timeline' %}">
-                    <img src="{% static 'img/ig.png' %}" alt="instagram logo" class="img-responsive" height="110px" width="110px"
+                    <img src="data:image/jpeg;base64,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" alt="instagram logo" class="img-responsive" height="50px" width="50px"
                         style="margin-top: 3.2%; margin-left: 0px; margin-right: 0px;">
                 </a>
 
                 <form class="navbar-form" role="search" action="" style="margin-top: 3.2%;
   margin-left: 73.8%; margin-right: 0px;">
-                    <div class='input-group'>
-                        <input type="text" class="form-control" placeholder="Search" name="person" style="width: 200px; height: 30px; border-radius: 3px; font-size: 15px; padding-left: 40%;">
+                    <div class='input-group' style="margin-left: 150px;">
+                        <input type="text" class="form-control" placeholder="Search" name="person" style="width: 200px; height: 30px; border-radius: 3px; font-size: 15px;">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit" id="searchbutton">
-                                <i class="glyphicon glyphicon-search" id="searchfont"></i>
+                                <i class="glyphicon glyphicon-search" id="searchfont" style="font-size: 15px;"></i>
                             </button>
                         </div>
                     </div>
@@ -36,18 +36,23 @@
 
             <!--Adding a search from -->
             <div class="col-sm-4 navbar-right">
-                <a href="{% url 'suggestions' %}">
+                <a href="{% url 'suggestions' %}" style="margin-right: 20px;">
                     <i class="fa fa-bandcamp" aria-hidden="true" id="badcamp"></i>
                 </a>
-                <a href="">
+                <a href="" style="margin-right: 20px;">
                     <i class="fa fa-heart" aria-hidden="true" id="material"></i>
                 </a>
-                <a href="{% url 'profile' %}">
+                <a href="{% url 'profile' %}" style="margin-right: 20px;">
                     <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
                 </a>
-                <a href="{% url 'post' %}">
+                <a href="{% url 'post' %}" style="margin-right: 20px;">
                     <button type="submit" class="btn" id="makepost">
                         <i class="fa fa-inbox" aria-hidden="true" id="inbox"></i>
+                    </button>
+                </a>
+                <a href="/accounts/logout" style="margin-right: 20px;">
+                    <button type="submit" class="btn">
+                        <i class="fa fa-inbox" aria-hidden="true">Logout</i>
                     </button>
                 </a>
             </div>

@@ -7,8 +7,8 @@
       <div class="col-md-2 col-lg-2">
       </div>
       <div class="col-md-6 col-lg-6" id="left">
-        {% if following_posts %}
-        {% for follow in following_posts %}
+     
+        {% for follow in all %}
         <div class="panel panel-default" id="default">
           <div class="panel-heading" id="headingcolor">
             <img src="{{follow.profile.photo.url}}" alt="{{follow.profile.user.username}}" class="img-responsive" height="" width="" id="profimage">
@@ -25,12 +25,11 @@
           </div>
         </div>
         {% endfor %}
-        {% else %}
+    
         <h3 class="text-left" id="blue">You are not following anyone.</h3>
         {% if profiles %}  
         <h3>Suggestions for you. {{profiles|length}} people</h3>
         <h3><a href="{% url 'suggestions' %}" id="">See All</a></h3>
-        {% endif %}
         {% endif %}
       </div>
       <div class="col-md-2 col-lg-2" id="tagbar">
