@@ -23,10 +23,9 @@ A user should be albe to:
 6. Download a picture I like and save it to my machine.
 
 ## SPECIFICATIONS
-| Behaviour                                                                                 | Input                                                     | Output                                                                            |
-|-------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------|
-| User view various photos on homepage                                                      | On page load                                              | Display various categories of photos                                              |
-| A single image appears on a modal                                                         | User clicks on a single image                             | A single modal image appears on top of other images displaying image descriptions |
-| Filters all images on a specific category                                                 | User searches images based on categories                  | All images based on that category all displayed on a different template           |
-| All images of different categories but the same location are displayed                    | User clicks on the dropdown menu with different locations | A page with images of a particular location appear                                |
-| The program should navigate home page when the app name/Home Tag is clicked on the navbar | Click on Pic-Galore/Home Tag  on the navigation bar       | Redirect to the Home page                                                         |
+| Behaviour  |    Input      | Output |
+|----------|:-------------:|------:|
+| Sign into application | click sigin button | logged into the index page |
+| Upload pictures | Click post button & add image url  | see posted image display in profile page |
+| See profile with posted images | Click profile page link | see profile page with profile details and image posts |   
+                                                   
